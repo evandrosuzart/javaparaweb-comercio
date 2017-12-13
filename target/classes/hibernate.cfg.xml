@@ -26,7 +26,12 @@
 		<property name="use_sql_comments">true</property>
 		
 		<!-- Mapeamento de classes -->
+		<mapping class="br.com.javaparaweb.comercio.entidades.Categpria"/>
+		<mapping class="br.com.javaparaweb.comercio.entidades.Cliente"/>
+		<mapping class="br.com.javaparaweb.comercio.entidades.Empregado"/>
+		<mapping class="br.com.javaparaweb.comercio.entidades.Endereco"/>
+		<mapping class="br.com.javaparaweb.comercio.entidades.Pedido"/>
+		<mapping class="br.com.javaparaweb.comercio.entidades.Produto"/>
 		
-
 	</session-factory>
 </hibernate-configuration>
