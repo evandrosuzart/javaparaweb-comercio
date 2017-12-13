@@ -7,7 +7,7 @@
 		<!-- Configuração da conexão com o banco MySQL e dialeto -->
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost/agenda</property>
+		<property name="connection.url">jdbc:mysql://localhost/comercio</property>
 		<property name="connection.username">newUser</property>
 		<property name="connection.password">newpass</property>
 
