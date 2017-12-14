@@ -1,36 +1,29 @@
 package br.com.javaparaweb.comercio.entidades;
-
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Parameter;
 
-@Entity
-@Table(name="endereco")
-public class Endereco implements Serializable {
+import br.com.javaparaweb.comercio.entidades.Cliente;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6146162020804865991L;
+@Entity
+@Table(name = "endereco")
+public class Endereco implements Serializable {
+	private static final long	serialVersionUID	= 1280791770249284855L;
+
 	@Id
-	@GeneratedValue(generator="fk_endereco_cod_cliente")
-	
-	@org.hibernate.annotations.GenericGenerator(name="fk_endereco_cod_cliente",strategy="foreign"
-	,parameters = @Parameter(name="property",value="cliente"))
-	@Column(name="cod_cliente")
-	private Integer endereco;
-	
+	@GeneratedValue(generator = "fk_endereco_cod_cliente") 
+	@org.hibernate.annotations.GenericGenerator(name = "fk_endereco_cod_cliente", 
+		strategy = "foreign", parameters = @Parameter(name = "property", value = "cliente")) 
+	@Column(name = "cod_cliente")
+	private Integer	endereco;
+
 	@OneToOne(mappedBy="endereco")
-	private Cliente cliente;
-	private String rua;
-	private String cidade;
+	private Cliente	cliente;
+
+	private String	rua;
+	private String	cidade;
 	public Integer getEndereco() {
 		return endereco;
 	}
@@ -55,16 +48,14 @@ public class Endereco implements Serializable {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cidade == null) ? 0 : cidade.hashCode());
 		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
-		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
+		result = prime * result
+				+ ((endereco == null) ? 0 : endereco.hashCode());
 		result = prime * result + ((rua == null) ? 0 : rua.hashCode());
 		return result;
 	}
@@ -99,5 +90,4 @@ public class Endereco implements Serializable {
 			return false;
 		return true;
 	}
-	
 }

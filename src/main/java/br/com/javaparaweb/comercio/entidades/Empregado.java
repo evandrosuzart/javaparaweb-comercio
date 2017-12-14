@@ -2,31 +2,24 @@ package br.com.javaparaweb.comercio.entidades;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="empregado")
+@Table(name = "empregado")
 public class Empregado implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5417851761601911348L;
+
+	private static final long serialVersionUID	= -2417223544507074940L;
+	
 	@Id
 	@GeneratedValue
-	@Column(name="cod_empregado")
-	private Integer empregado;
+	@Column(name = "cod_empregado")
+	private Integer	empregado;
 	
 	private String nome;
-	
-	@OneToOne
-	@JoinColumn(name="cod_chefe")
-	private Empregado chefe;
+
+	@OneToOne 
+	@JoinColumn(name = "cod_chefe") 
+	private Empregado	chefe;
 
 	public Integer getEmpregado() {
 		return empregado;
@@ -52,16 +45,13 @@ public class Empregado implements Serializable {
 		this.chefe = chefe;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((chefe == null) ? 0 : chefe.hashCode());
-		result = prime * result + ((empregado == null) ? 0 : empregado.hashCode());
+		result = prime * result
+				+ ((empregado == null) ? 0 : empregado.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -92,5 +82,4 @@ public class Empregado implements Serializable {
 			return false;
 		return true;
 	}
-	
 }

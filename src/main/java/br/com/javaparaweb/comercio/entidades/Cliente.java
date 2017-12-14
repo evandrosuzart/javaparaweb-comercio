@@ -3,86 +3,63 @@ package br.com.javaparaweb.comercio.entidades;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import br.com.javaparaweb.comercio.entidades.Endereco;
+import br.com.javaparaweb.comercio.entidades.Pedido;
 
 @Entity
-@Table(name="cliente")
+@Table(name = "cliente")
 public class Cliente implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7329206636876103979L;
+	private static final long	serialVersionUID	= -1707591652638708533L;
 
 	@Id
 	@GeneratedValue
-	@Column(name="cod_cliente")
-	private Integer cliente;
-	
-	@OneToOne
-	@PrimaryKeyJoinColumn(name="cod_cliente")
-	private Endereco endereco;
-	
-	@OneToMany(mappedBy="cliente",fetch=FetchType.LAZY)
-	private List<Pedido> pedidos;
-	
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
+	@Column(name = "cod_cliente")
+	private Integer		cliente;
 
+	@OneToOne 
+	@PrimaryKeyJoinColumn(name = "cod_cliente")
+	private Endereco		endereco;
 
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
+	@OneToMany(mappedBy="cliente", fetch = FetchType.LAZY)
+	private List<Pedido>	pedidos;
 
-
-	@Column(length=45)
-	private String nome;
-
+	@Column(length = 45)	
+	private String			nome;
 
 	public Integer getCliente() {
 		return cliente;
 	}
 
-
 	public void setCliente(Integer cliente) {
 		this.cliente = cliente;
 	}
-
 
 	public Endereco getEndereco() {
 		return endereco;
 	}
 
-
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
 
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 
 	public String getNome() {
 		return nome;
 	}
 
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 
 	@Override
 	public int hashCode() {
@@ -92,7 +69,6 @@ public class Cliente implements Serializable {
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -115,5 +91,5 @@ public class Cliente implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 }

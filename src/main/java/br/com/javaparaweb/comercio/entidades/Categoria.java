@@ -2,35 +2,27 @@ package br.com.javaparaweb.comercio.entidades;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="categoria")
-public class Categoria implements Serializable {
+@Table(name = "categoria")
+public class Categoria implements Serializable { 
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7804519114258254728L;
+	private static final long	serialVersionUID	= -3207313213827875202L;
 	
 	@Id
-	@GeneratedValue
-	@Column(name="cod_categoria")
-	private Integer categoria;
-	
-	@Column(length=45)
-	private String descricao;
-	
-	@Lob
+	@GeneratedValue 
+	@Column(name = "cod_categoria")
+	private Integer	categoria;
+
+	@Column(length = 45) 
+	private String	descricao;
+
+	@Lob 
 	private String resumo;
-	
+
 	public Categoria(String descricao, String resumo) {
-		this.descricao=descricao;
+		this.descricao = descricao;
 		this.resumo = resumo;
 	}
 
@@ -58,16 +50,14 @@ public class Categoria implements Serializable {
 		this.resumo = resumo;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
-		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result
+				+ ((categoria == null) ? 0 : categoria.hashCode());
+		result = prime * result
+				+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((resumo == null) ? 0 : resumo.hashCode());
 		return result;
 	}
@@ -98,5 +88,4 @@ public class Categoria implements Serializable {
 			return false;
 		return true;
 	}
-
 }
