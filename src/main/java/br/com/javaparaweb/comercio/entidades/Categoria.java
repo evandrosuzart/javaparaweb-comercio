@@ -80,7 +80,7 @@ public class Categoria implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Categpria other = (Categpria) obj;
+		Categoria other = (Categoria) obj;
 		if (categoria == null) {
 			if (other.categoria != null)
 				return false;
